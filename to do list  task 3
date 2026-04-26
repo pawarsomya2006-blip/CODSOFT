@@ -1,0 +1,46 @@
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+struct Task{
+    std:: string desription;
+    bool isDone =false;
+};
+
+int main() {
+    // Write C++ code here
+    std:: vector<Task> todolist;
+    int choice;
+    std::string taskDesc;
+    do{
+        std::cout<<"\n1.add Task\n2.viwe Task\n3.mrak Done complted Task\n4.delete Task\n5. Exit\nchoice:";
+        std::cin>>choice;
+        switch(choice){
+            case 1:
+            std:: cout<<"Enter task:";
+            std::cin.ignore();
+            std::getline(std::cin,taskDesc);
+            todolist.push_back({taskDesc,false});
+            break;
+            case 2:
+            for(int i =0;i<todolist.size();++i){
+                std::cout<<i+1<<".["<<(todolist[i].isDone?"x":" ")<<todolist[i].desription<<"\n";
+            }
+            break;
+            case 3:
+            int markIdx;
+            std:: cout<<"task number to done :";
+            std::cin>> markIdx;
+            if (markIdx>0&& markIdx<=todolist.size()) todolist[markIdx-1].isDone=true;
+            break;
+            case 4:
+            int delIdx;
+            std::cout<<"Task number to deleted:";
+            std::cin>>delIdx;
+            if(delIdx>0&& delIdx<=todolist.size())todolist.erase(todolist.begin()+delIdx-1)) 
+            break;
+        }
+        
+    } while(choice != 5);
+    return 0;
+}
