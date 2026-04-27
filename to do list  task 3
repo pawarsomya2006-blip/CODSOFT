@@ -37,7 +37,7 @@ int main() {
             int delIdx;
             std::cout<<"Task number to deleted:";
             std::cin>>delIdx;
-            if(delIdx>0&& delIdx<=todolist.size())todolist.erase(todolist.begin()+delIdx-1)) 
+            if(delIdx>0&& delIdx<=todolist.size())todolist.erase(todolist.begin()+delIdx-1); 
             break;
         }
         
