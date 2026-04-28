@@ -1,0 +1,59 @@
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+struct Task {
+    string description;
+    bool isDone;
+};
+int main(){
+    vector<Task>Todo;
+    int choice;
+    while(true){
+        cout<<"\n1.Add Task\n2. View Task\n3.Mrak completed\n4.Delete\n5.Exit\nchoice:";
+        cin>>choice;
+        switch(choice){
+            case 1:{
+                cout<<"Enter task:";
+                string t;
+                cin.ignore();
+                getline(cin,t);
+                Todo.push_back({t,false});
+                break;
+                }
+                case 2:
+                if (Todo.empty()){
+                    cout<<"List is empty."<<endl;
+                }else{
+                    for(int i=0;i<Todo.size();i++){
+                        cout<<i+1<<":"
+                        <<Todo[i].description<<"-"
+                        <<(Todo[i].isDone?"Done" : "pending")<<endl;
+                    }
+                }
+                
+                break;
+                case 3:{
+                int id;
+                cout<<"Enter task number:";
+                cin>>id;
+                if(id>0&&id<=Todo.size())Todo[id-1].isDone=true;
+                break;
+                }
+        
+        case 4:{
+            
+        int id;
+        cout<<"Enter task number:";
+        cin>>id;
+        if (id >0 && id<=Todo.size()){ Todo.erase(Todo.begin()+id-1);
+        } else{
+            cout<<"Invalid task number\n";
+        }
+        break;
+        
+        }case 5:
+        return 0;
+    }
+}
+}
